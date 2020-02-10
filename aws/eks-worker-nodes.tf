@@ -49,12 +49,11 @@ resource "aws_eks_node_group" "demo" {
     min_size     = 1
   }
 
-  depends_on {
+  depends_on = [
     aws_iam_role_policy_attachment.demo-node-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.demo-node-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.demo-node-AmazonEC2ContainerRegistryReadOnly
-  }
-
+  ]
 }
 
 
